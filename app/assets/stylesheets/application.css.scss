@@ -1,0 +1,22 @@
+@import 'bootstrap';
+@import 'bootstrap/theme';
+
+.messages {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+.alert-notice {
+  @extend .alert-success;
+}
+
+.alert-alert {
+  @extend .alert-warning;
+}
+
+footer {
+  margin-top: 2em;
+  clear: both;
+}

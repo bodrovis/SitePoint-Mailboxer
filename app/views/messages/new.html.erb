@@ -1,0 +1,17 @@
+<% page_header "Send Message to #{@recipient.name}" %>
+
+<%= form_tag messages_path, method: :post do %>
+  <div class="form-group">
+    <%= label_tag 'message[subject]', 'Subject' %>
+    <%= text_field_tag 'message[subject]', nil, class: 'form-control', required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag 'message[body]', 'Message' %>
+    <%= text_area_tag 'message[body]', nil, cols: 3, class: 'form-control', required: true %>
+  </div>
+
+  <%= hidden_field_tag :recipient, "#{@recipient.id}" %>
+
+  <%= submit_tag 'Send', class: 'btn btn-primary' %>
+<% end %>

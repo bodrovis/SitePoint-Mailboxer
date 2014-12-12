@@ -1,0 +1,12 @@
+<li class="media">
+  <div class="media-left">
+    <%= gravatar_for user, 45 %>
+  </div>
+  <div class="media-body">
+    <h6 class="media-heading">
+      <%= user.name %>
+      <%= "<small>(it's you)</small>".html_safe if current_user == user %>
+    </h6>
+    <%= link_to 'Send a message', new_message_path(recipient: user.id), class: 'btn btn-default btn-xs' %>
+  </div>
+</li>

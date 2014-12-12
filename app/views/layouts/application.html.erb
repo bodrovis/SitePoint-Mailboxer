@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Synergy</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <%= link_to 'Synergy', root_path, class: 'navbar-brand' %>
+    </div>
+    <ul class="nav navbar-nav">
+      <% if user_signed_in? %>
+        <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
+        <li><%= link_to 'Users', users_path %></li>
+        <li><%= link_to 'Your Conversations', conversations_path %></li>
+        <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
+      <% else %>
+        <li><%= link_to 'Log In', new_user_session_path %></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>">
+      <%= value %>
+    </div>
+  <% end %>
+
+  <div class="page-header">
+    <h1><%= yield :page_header %></h1>
+  </div>
+
+  <%= yield %>
+</div>
+
+<footer>
+  <div class="container">
+    <p class="text-muted">Created by <a href="http://radiant-wind.com" target="_blank">Radiant Wind</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
