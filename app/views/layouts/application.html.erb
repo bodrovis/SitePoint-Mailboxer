@@ -18,6 +18,7 @@
       <% if user_signed_in? %>
         <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
         <li><%= link_to 'Your Conversations', conversations_path %></li>
+        <li><%= link_to 'Users', users_path %></li>
         <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
       <% else %>
         <li><%= link_to 'Log In', new_user_session_path %></li>
